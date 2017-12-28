@@ -1,5 +1,5 @@
 import numpy as np
-
+import csv
 
 def sigmoid(inX):
 	return 1.0/(1+exp(-inX))
@@ -17,3 +17,13 @@ def gradAscent(dataMatIn, classLabels):
 		weights = weights + alpha * dataMatrix.transpose() * error
 
 	return weights
+
+def getData(filePath):
+	csvfile = open(filePath, 'rb')
+	reader = csv.reader(csvfile)
+	for row in reader:
+		print row
+
+def gradDescent(x, y, theta, alpha, m, maxIter):
+	a = 1
+
